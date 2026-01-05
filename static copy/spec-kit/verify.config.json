@@ -1,0 +1,7 @@
+{
+  "runtimeFiles": ["app.js", "worker.js", "index.html"],
+  "a11yChecks": true,
+  "perfChecks": true,
+  "lintCommand": null,
+  "ci": {"enableHeavyChecks": false}
+}

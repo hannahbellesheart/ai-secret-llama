@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Secret Llama — Static</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Bootswatch 5.3.8 (Cosmo) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/cosmo/bootstrap.min.css" rel="stylesheet">
+    <!-- Markdown and syntax highlighting (vanilla JS) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="container my-4">
+      <div class="card shadow-sm">
+          <div class="card-header d-flex align-items-center justify-content-between">
+          <h4 class="mb-0">Secret Llama (static)</h4>
+          <div class="d-flex gap-2 align-items-center">
+            <label for="model" class="visually-hidden">Model</label>
+            <select id="model" class="form-select form-select-sm" aria-label="Select model"></select>
+            <div id="cacheStatus" class="small text-muted ms-2" style="min-width:140px" aria-live="polite"></div>
+             <button id="downloadModelBtn" class="btn btn-outline-primary btn-sm ms-2" aria-label="Download selected model">Download</button>
+            <button id="settingsBtn" class="btn btn-outline-secondary btn-sm" aria-label="Open settings">Settings</button>
+            <button id="reset" class="btn btn-outline-danger btn-sm" aria-label="Reset chat">Reset</button>
+          </div>
+        </div>
+
+        <div class="card-body d-flex flex-column" style="min-height:560px;">
+          <div id="welcome" class="text-center text-muted py-5" role="region" aria-label="Welcome"> 
+            <img src="favicon.png" alt="Secret Llama" class="rounded-circle mb-3" width="96" height="96">
+            <h5>Welcome to Secret Llama</h5>
+            <p class="mb-0">This demo can connect to an AI backend using a streaming API. Configure `API_URL` in `static/app.js` or run the optional proxy server.</p>
+          </div>
+
+          <div id="messagesContainer" class="flex-grow-1 overflow-auto border rounded p-3 bg-white bg-opacity-5" style="display:none;">
+            <ul id="messages" class="list-unstyled mb-0" aria-live="polite"></ul>
+          </div>
+
+          <form id="composer" class="d-flex gap-2 mt-3" role="form" aria-label="Message composer">
+            <label for="input" class="visually-hidden">Message</label>
+            <textarea id="input" class="form-control" placeholder="Message" rows="2" aria-label="Message input"></textarea>
+            <div class="d-flex flex-column gap-2">
+              <button type="submit" id="send" class="btn btn-primary" aria-label="Send message">Send</button>
+              <button type="button" id="stop" class="btn btn-secondary" style="display:none" aria-label="Stop generation">Stop</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="card-footer text-muted small text-center">Local demo. Use the optional proxy server to connect to an enterprise API.</div>
+      </div>
+    </div>
+
+    <!-- Settings modal -->
+    <div class="modal fade" id="settingsModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">API Settings</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-2">
+              <label class="form-label">API URL</label>
+              <input id="apiUrl" class="form-control" placeholder="https://.../chat" />
+            </div>
+            <div class="mb-2">
+              <label class="form-label">API Key (optional)</label>
+              <input id="apiKey" class="form-control" placeholder="sk-... (store in session)" />
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="useApi">
+              <label class="form-check-label" for="useApi">Use API for real responses</label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="saveSettings" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

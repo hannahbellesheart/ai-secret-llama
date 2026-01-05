@@ -1,0 +1,317 @@
+[
+  {
+    "id": "1.01",
+    "title": "Read and analyze entrypoint, user, and app files",
+    "description": "Read and analyze `00_ENTRYPOINT.md`, `01_user.md`, and `02_app.md` to extract key requirements, constraints, and acceptance criteria.",
+    "acceptanceCriteria": [
+      "Key requirements, constraints, and acceptance criteria are identified and documented."
+    ],
+    "verificationCommands": [
+      "echo 'Manual verification: Check notes from analysis.'"
+    ],
+    "owner": "developer",
+    "impact": "planning",
+    "status": "completed",
+    "artifacts": []
+  },
+  {
+    "id": "1.02",
+    "title": "Scaffold basic project structure",
+    "description": "Scaffold the basic project structure (e.g., index.html, app.js, styles.css, worker.js) based on `02_app.md` specifications.",
+    "acceptanceCriteria": [
+      "Project structure serves basic assets (HTTP 200).",
+      "Accessibility basics (e.g., ARIA presence) are considered."
+    ],
+    "verificationCommands": [
+      "run spec-kit/scripts/smoke_test.sh"
+    ],
+    "owner": "developer",
+    "impact": "structure",
+    "status": "completed",
+    "artifacts": []
+  },
+  {
+    "id": "1.03",
+    "title": "Define core features and break into tasks",
+    "description": "Define core features and break them into manageable tasks, ensuring each task has clear acceptance criteria, verification commands, and impact assessment.",
+    "acceptanceCriteria": [
+      "Core features are listed and broken into tasks."
+    ],
+    "verificationCommands": [
+      "echo 'Manual verification: Review task definitions.'"
+    ],
+    "owner": "developer",
+    "impact": "planning",
+    "status": "completed",
+    "artifacts": []
+  },
+  {
+    "id": "1.04",
+    "title": "Generate 04_tasks.json",
+    "description": "Generate `04_tasks.json` as an array of task objects, each with id, title, description, acceptanceCriteria, verificationCommands, owner, and impact.",
+    "acceptanceCriteria": [
+      "`04_tasks.json` is valid JSON with all required fields."
+    ],
+    "verificationCommands": [
+      "python3 -m json.tool spec-kit/04_tasks.json > /dev/null && echo 'Valid JSON'"
+    ],
+    "owner": "developer",
+    "impact": "planning",
+    "status": "completed",
+    "artifacts": []
+  },
+  {
+    "id": "1.05",
+    "title": "Set up initial verification scripts",
+    "description": "Set up initial verification scripts in `spec-kit/scripts/` (e.g., smoke_test.sh, a11y_smoke.sh) tailored to the app's needs.",
+    "acceptanceCriteria": [
+      "Initial scripts run without errors."
+    ],
+    "verificationCommands": [
+      "bash spec-kit/scripts/smoke_test.sh",
+      "bash spec-kit/scripts/a11y_smoke.sh"
+    ],
+    "owner": "developer",
+    "impact": "testing",
+    "status": "completed",
+    "artifacts": []
+  },
+  {
+    "id": "1.06",
+    "title": "Initialize 04_changelog.md",
+    "description": "Initialize `04_changelog.md` with the plan start date and initial setup notes.",
+    "acceptanceCriteria": [
+      "`04_changelog.md` exists with initial notes."
+    ],
+    "verificationCommands": [
+      "test -f spec-kit/04_changelog.md && echo 'File exists'"
+    ],
+    "owner": "developer",
+    "impact": "documentation",
+    "status": "completed",
+    "artifacts": []
+  },
+  {
+    "id": "2.01",
+    "title": "Implement core features with commenting",
+    "description": "For each core feature, implement the functionality with comprehensive code commenting explaining logic, edge cases, and decisions.",
+    "acceptanceCriteria": [
+      "All features pass acceptance criteria."
+    ],
+    "verificationCommands": [
+      "run spec-kit/scripts/verify.sh"
+    ],
+    "owner": "developer",
+    "impact": "functionality",
+    "status": "completed",
+    "artifacts": []
+  },
+  {
+    "id": "2.02",
+    "title": "Integrate accessibility features",
+    "description": "Add ARIA roles, labels, keyboard navigation, and screen reader support for all interactive elements.",
+    "acceptanceCriteria": [
+      "Accessibility audits show no critical issues."
+    ],
+    "verificationCommands": [
+      "bash spec-kit/scripts/a11y_smoke.sh"
+    ],
+    "owner": "developer",
+    "impact": "accessibility"
+  },
+  {
+    "id": "2.03",
+    "title": "Develop robust testing",
+    "description": "Include unit tests, integration tests, and automated tests in `spec-kit/scripts/automated_tests.sh`, covering syntax, logic, bugs, and edge cases.",
+    "acceptanceCriteria": [
+      "Tests cover >90% of code paths, including edge cases."
+    ],
+    "verificationCommands": [
+      "bash spec-kit/scripts/automated_tests.sh"
+    ],
+    "owner": "developer",
+    "impact": "testing"
+  },
+  {
+    "id": "2.04",
+    "title": "Ensure performance",
+    "description": "Optimize for low memory/network impact; measure with `spec-kit/scripts/perf_test.sh`.",
+    "acceptanceCriteria": [
+      "Performance metrics meet thresholds (e.g., <2s load times)."
+    ],
+    "verificationCommands": [
+      "bash spec-kit/scripts/perf_test.sh"
+    ],
+    "owner": "developer",
+    "impact": "performance"
+  },
+  {
+    "id": "2.05",
+    "title": "Document thoroughly",
+    "description": "Add inline comments, README updates, and API documentation for each feature.",
+    "acceptanceCriteria": [
+      "Documentation is complete and accurate."
+    ],
+    "verificationCommands": [
+      "echo 'Manual verification: Review documentation.'"
+    ],
+    "owner": "developer",
+    "impact": "documentation"
+  },
+  {
+    "id": "2.06",
+    "title": "Run verification after each task",
+    "description": "Use `spec-kit/scripts/verify.sh` to check syntax, smoke, a11y, and perf; attach reports to tasks and log in `04_changelog.md`.",
+    "acceptanceCriteria": [
+      "Verification reports are generated and attached."
+    ],
+    "verificationCommands": [
+      "bash spec-kit/scripts/verify.sh"
+    ],
+    "owner": "developer",
+    "impact": "verification"
+  },
+  {
+    "id": "3.01",
+    "title": "Integrate all features",
+    "description": "Integrate all features into a cohesive application, resolving any conflicts or dependencies.",
+    "acceptanceCriteria": [
+      "End-to-end flows work seamlessly."
+    ],
+    "verificationCommands": [
+      "run spec-kit/scripts/smoke_test.sh"
+    ],
+    "owner": "developer",
+    "impact": "integration"
+  },
+  {
+    "id": "3.02",
+    "title": "Polish UI/UX",
+    "description": "Ensure responsive design, consistent styling, and intuitive user flows with accessibility in mind.",
+    "acceptanceCriteria": [
+      "UI/UX is polished and accessible."
+    ],
+    "verificationCommands": [
+      "bash spec-kit/scripts/a11y_smoke.sh"
+    ],
+    "owner": "developer",
+    "impact": "ui"
+  },
+  {
+    "id": "3.03",
+    "title": "Enhance testing",
+    "description": "Add end-to-end tests and cross-browser checks.",
+    "acceptanceCriteria": [
+      "All tests pass, including automated suites."
+    ],
+    "verificationCommands": [
+      "bash spec-kit/scripts/automated_tests.sh"
+    ],
+    "owner": "developer",
+    "impact": "testing"
+  },
+  {
+    "id": "3.04",
+    "title": "Finalize documentation",
+    "description": "Compile comprehensive app documentation, troubleshooting guides, and user manuals.",
+    "acceptanceCriteria": [
+      "Documentation enables easy maintenance and onboarding."
+    ],
+    "verificationCommands": [
+      "echo 'Manual verification: Review final documentation.'"
+    ],
+    "owner": "developer",
+    "impact": "documentation"
+  },
+  {
+    "id": "3.05",
+    "title": "Conduct full verification cycle",
+    "description": "Run all scripts, review reports, and iterate on any failures.",
+    "acceptanceCriteria": [
+      "Full verification cycle completes successfully."
+    ],
+    "verificationCommands": [
+      "bash spec-kit/scripts/verify.sh"
+    ],
+    "owner": "developer",
+    "impact": "verification"
+  },
+  {
+    "id": "3.06",
+    "title": "Update changelog",
+    "description": "Update `04_changelog.md` with completion notes and any final adjustments.",
+    "acceptanceCriteria": [
+      "`04_changelog.md` is updated with completion notes."
+    ],
+    "verificationCommands": [
+      "test -f spec-kit/04_changelog.md && echo 'File updated'"
+    ],
+    "owner": "developer",
+    "impact": "documentation"
+  },
+  {
+    "id": "4.01",
+    "title": "Set up build/deployment scripts",
+    "description": "Set up build/deployment scripts if needed (e.g., for static hosting).",
+    "acceptanceCriteria": [
+      "Application deploys successfully to target environment."
+    ],
+    "verificationCommands": [
+      "echo 'Manual verification: Test deployment.'"
+    ],
+    "owner": "developer",
+    "impact": "deployment"
+  },
+  {
+    "id": "4.02",
+    "title": "Final security review",
+    "description": "Ensure no secrets in code, proper error handling.",
+    "acceptanceCriteria": [
+      "No security vulnerabilities."
+    ],
+    "verificationCommands": [
+      "echo 'Manual verification: Security audit.'"
+    ],
+    "owner": "developer",
+    "impact": "security"
+  },
+  {
+    "id": "4.03",
+    "title": "Performance optimization",
+    "description": "Final tuning based on real-world metrics.",
+    "acceptanceCriteria": [
+      "Performance is optimized for production."
+    ],
+    "verificationCommands": [
+      "bash spec-kit/scripts/perf_test.sh"
+    ],
+    "owner": "developer",
+    "impact": "performance"
+  },
+  {
+    "id": "4.04",
+    "title": "Mark tasks completed",
+    "description": "Mark all tasks in `04_tasks.json` as completed, with attached final reports.",
+    "acceptanceCriteria": [
+      "All tasks marked completed with reports."
+    ],
+    "verificationCommands": [
+      "echo 'Manual verification: Check task statuses.'"
+    ],
+    "owner": "developer",
+    "impact": "completion"
+  },
+  {
+    "id": "4.05",
+    "title": "Archive spec-kit",
+    "description": "Archive the spec-kit for future reference.",
+    "acceptanceCriteria": [
+      "Spec-kit archived."
+    ],
+    "verificationCommands": [
+      "echo 'Manual verification: Archive created.'"
+    ],
+    "owner": "developer",
+    "impact": "archival"
+  }
+]

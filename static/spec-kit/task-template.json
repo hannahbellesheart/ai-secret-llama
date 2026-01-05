@@ -1,0 +1,17 @@
+{
+  "id": "3.01",
+  "title": "Example: scaffold project",
+  "description": "Create base scaffold for the application (index.html, app.js, styles.css).",
+  "acceptanceCriteria": [
+    "index.html serves 200",
+    "app.js syntax check passes",
+    "basic accessibility heuristics pass"
+  ],
+  "verificationCommands": [
+    "node --check app.js worker.js",
+    "bash spec-kit/scripts/smoke_test.sh",
+    "bash spec-kit/scripts/a11y_smoke.sh"
+  ],
+  "owner": "team/frontend",
+  "impact": {"memory": "low", "network": "low"}
+}

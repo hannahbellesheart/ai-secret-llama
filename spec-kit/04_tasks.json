@@ -1,0 +1,27 @@
+```markdown
+# 03_TASKS — Per-iteration task list (generic)
+
+This file contains the project's `3.x` tasks. Each task must be small, focused, and include verifiable acceptance criteria and verification commands.
+
+Task format (example):
+
+- id: 3.01
+  title: Implement feature A
+  description: Short description of the feature
+  acceptanceCriteria:
+    - Criterion 1 (testable)
+    - Criterion 2 (testable)
+  verificationCommands:
+    - bash spec-kit-creation/06_verify.sh $BASE_URL
+  status: not-started
+  artifacts: []
+
+Per-iteration checklist (to be followed for every task):
+- Implement only the selected task (no unrelated edits).
+- Run verification: `bash 06_verify.sh <BASE_URL>`.
+- On success: set `status: completed`, attach artifact path(s), and append changelog entry to `04_changelog.md`.
+- On critical failure: fix and re-run verification before marking completed.
+
+Add tasks by duplicating the example block and incrementing `3.xx` ids.
+
+```

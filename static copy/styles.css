@@ -1,0 +1,38 @@
+:root{
+  --bg:#0f1724; --card:#0b1220; --muted:#94a3b8; --accent:#7c3aed; --user:#0ea5a4;
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+.body-bg{background: linear-gradient(180deg,#071029 0%, #071723 100%);}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,Arial;color:var(--bs-body-color)}
+.container{max-width:960px}
+.card{background:rgba(255,255,255,0.02);}
+.form-control, .form-select{background:rgba(255,255,255,0.02);color:inherit;border:1px solid rgba(255,255,255,0.06)}
+.form-control:focus{box-shadow:none}
+
+.main{flex:1;overflow:auto;padding:18px}
+.welcome{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:36px;color:var(--muted)}
+.welcome-img{width:96px;height:96px;border-radius:50%;object-fit:cover;margin-bottom:6px}
+.messages-container{flex:1;overflow:auto}
+.messages{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+.msg{max-width:80%;padding:12px 14px;border-radius:10px;line-height:1.4}
+.msg.user{margin-left:auto;background:linear-gradient(90deg,#064e4a,#0ea5a4);color:rgba(0,0,0,0.85);box-shadow:0 4px 12px rgba(14,165,164,0.08);}
+.msg.ai{background:linear-gradient(90deg,#0b1220,#071029);color:rgba(230,230,230,0.95);border-left:4px solid rgba(124,58,237,0.12);border:1px solid rgba(255,255,255,0.03)}
+.msg-header{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.avatar{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.03)}
+.who{font-weight:700}
+.msg-body{white-space:pre-wrap}
+
+.pre{ }
+pre{background:#071023;padding:14px;border-radius:10px;overflow:auto;border:1px solid rgba(255,255,255,0.02)}
+.copy-btn{position:absolute;top:8px;right:8px;opacity:0.95;padding:6px 8px;border:none;border-radius:6px;cursor:pointer;background:rgba(255,255,255,0.04);color:#e2e8f0}
+.copy-btn:focus{outline:2px solid rgba(124,58,237,0.5)}
+.composer{display:flex;gap:12px;padding:14px;border-top:1px solid rgba(255,255,255,0.03);align-items:flex-end}
+textarea{flex:1;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);color:inherit;padding:10px;border-radius:8px;resize:none}
+.composer-actions{display:flex;align-items:center;gap:8px}
+.btn{background:var(--accent);border:none;color:white;padding:8px 12px;border-radius:8px}
+.btn:hover{filter:brightness(1.05)}
+.form-control:focus, .form-select:focus, textarea:focus{outline:2px solid rgba(124,58,237,0.12);box-shadow:none}
+.footer{padding:10px 14px;font-size:12px;color:var(--muted);text-align:center;border-top:1px solid rgba(255,255,255,0.02)}
+
+@media (max-width:600px){.app{min-height:520px;padding:0}.title{font-size:16px}}
